@@ -9,6 +9,40 @@
 
 <ion-content>
 
+  <ion-list no-lines>
 
+    <ion-item>
+      Hi, Fernando
+    </ion-item>
+
+    <ion-item>{{fahrenheitTemperature}}&deg; in {{location}}</ion-item>
+    <ion-item text-wrap>
+      {{dailySummary}} With a high of {{tempHigh}}&deg; and low of {{tempLow}}&deg;.
+    </ion-item>
+
+    <ion-item>
+      <h1>5 Day Forecast</h1>
+    </ion-item>
+
+    <ion-item *ngFor="let day of multiDayForecast" text-wrap>
+      {{day.currentDate}}
+      <br/>
+      {{day.summary}}
+      <br/>
+      <ion-icon name="md-arrow-up" item-left></ion-icon>
+      {{day.temperatureMax}}&deg;
+      <br/>
+      <ion-icon name="md-arrow-down" item-left></ion-icon>
+      {{day.temperatureMin}}&deg;
+      <br/>
+    </ion-item>
+
+    <ion-item>
+      11:58 AM
+      <br/>
+      Saturday, October 8, 2016
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
