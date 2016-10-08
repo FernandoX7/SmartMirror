@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
+import {Mirror} from "../mirror/mirror";
 
 @Component({
   selector: 'page-home',
@@ -10,6 +11,10 @@ export class Home {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  startMirror(): void {
+    this.navCtrl.push(Mirror);
   }
 
 }

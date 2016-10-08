@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { Home } from '../pages/home/home';
-import { Page2 } from '../pages/page2/page2';
+import { Mirror } from '../pages/mirror/mirror';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Smart Mirror', component: Mirror }
     ];
 
   }
