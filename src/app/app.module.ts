@@ -21,6 +21,6 @@ import {SecretsService} from "../pages/mirror/secrets-service";
     Home,
     Mirror
   ],
-  providers: [FethWeatherService, SecretsService]
+  providers: [FethWeatherService, SecretsService, FethWeatherService]
 })
 export class AppModule {}

@@ -5,11 +5,12 @@ import {FethWeatherService} from "./weather-service";
 
 import 'rxjs/add/operator/map';
 import {Component, OnInit} from 'angular2/core';
+import {MapsService} from "./maps-service";
 
 @Component({
   selector: 'page-mirror',
   templateUrl: 'mirror.html',
-  providers: [FethWeatherService]
+  providers: [FethWeatherService, MapsService]
 })
 export class Mirror implements OnInit {
 
@@ -25,8 +26,10 @@ export class Mirror implements OnInit {
   locationData: any;
   location: String;
   multiDayForecast: any;
+  mapsData: any;
+  travelTime: String;
 
-  constructor(public navCtrl: NavController, private weather: FethWeatherService) {
+  constructor(public navCtrl: NavController, private weather: FethWeatherService, private maps: MapsService) {
   }
 
   ngOnInit() {
@@ -91,6 +94,18 @@ export class Mirror implements OnInit {
         },
         err => console.error('There was an error getting the location', err),
         () => console.log('Successfully got location')
+      );
+
+    // Get travel time
+    this.maps
+      .getTravelTimeToWork()
+      .subscribe(
+        data => {
+          this.mapsData = data;
+          this.travelTime = this.mapsData.rows[0].elements[0].duration.text
+        },
+        err => console.error('There was an error getting the travel time to work', err),
+        () => console.log('Successfully got travel time to work')
       );
 
   }
