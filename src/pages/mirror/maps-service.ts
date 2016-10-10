@@ -5,27 +5,24 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import {SecretsService} from "./secrets-service";
 
 @Injectable()
 export class MapsService {
 
   apiKey: String;
   http: any;
-  url: String = 'https://crossorigin.me/http://maps.googleapis.com/maps/api/distancematrix/json?origins=' + this.secrets.homeLatitude + ',' + this.secrets.homeLongitude + '&destinations=' + this.secrets.workLatitude + ',' + this.secrets.workLongitude + '&mode=driving&language=en-US&sensor=false';
 
-  constructor(http: Http, public secrets: SecretsService) {
+  constructor(http: Http) {
     this.http = http;
-    console.log(this.url);
   }
 
   ngOnInit() {
-    this.getTravelTimeToWork();
+    this.getTravelTimeToWork('0', '0', '0', '0');
   }
 
-  getTravelTimeToWork(): Observable<> {
+  getTravelTimeToWork(homeLatitude, homeLongitude, workLatitude, workLongitude): Observable<> {
     return this.http
-      .get(this.url)
+      .get('https://crossorigin.me/http://maps.googleapis.com/maps/api/distancematrix/json?origins=' + homeLatitude + ',' + homeLongitude + '&destinations=' + workLatitude + ',' + workLongitude + '&mode=driving&language=en-US&sensor=false')
       .map(res => res.json());
   }
 

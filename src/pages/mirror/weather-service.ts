@@ -20,18 +20,19 @@ export class FethWeatherService {
   }
 
   ngOnInit() {
-    this.getWeather();
+    this.getWeather('0', '0');
+    this.getLocation('0', '0');
   }
 
-  getWeather(): Observable<> {
+  getWeather(latitude, longitude): Observable<> {
     return this.http
-      .get('https://crossorigin.me/https://api.darksky.net/forecast/' + this.apiKey + '/36.3622,-94.2561')
+      .get('https://crossorigin.me/https://api.darksky.net/forecast/' + this.apiKey + '/' + latitude + ',' + longitude)
       .map(res => res.json());
   }
 
-  getLocation(): Observable<> {
+  getLocation(latitude, longitude): Observable<> {
     return this.http
-      .get('http://maps.googleapis.com/maps/api/geocode/json?latlng=36.3622,-94.2561&sensor=true')
+      .get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=true')
       .map(res => res.json());
   }
 

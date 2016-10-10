@@ -12,10 +12,15 @@
   <ion-list no-lines>
 
     <ion-item>
-      Hi, Fernando
+      Hi, {{usersName}}
+      <br/>
+      <br/>
+      {{currentTime}}
+      <br/>
+      {{currentDate}}
     </ion-item>
 
-    <ion-item>{{fahrenheitTemperature}}&deg; in {{location}}</ion-item>
+    <ion-item>{{temperature}}&deg; in {{location}}</ion-item>
     <ion-item text-wrap>
       {{dailySummary}} With a high of {{tempHigh}}&deg; and low of {{tempLow}}&deg;.
     </ion-item>
@@ -38,17 +43,11 @@
     </ion-item>
 
     <ion-item>
-      11:58 AM
-      <br/>
-      Saturday, October 8, 2016
-    </ion-item>
-
-    <ion-item>
       <h1>Maps</h1>
     </ion-item>
 
     <ion-item text-wrap>
-      It looks like it'll take you {{travelTime}} minutes to get to work today
+      {{travelTime}}
     </ion-item>
 
   </ion-list>
