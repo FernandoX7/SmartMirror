@@ -13,7 +13,9 @@ import {SecretsService} from "../pages/mirror/secrets-service";
     Mirror
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      mode: 'md'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
