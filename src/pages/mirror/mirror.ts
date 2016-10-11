@@ -123,6 +123,7 @@ export class Mirror implements OnInit {
           if (this.showTravelTimes == true) {
             var travelTime = this.mapsData.rows[0].elements[0].duration.text;
             travelTime = travelTime.replace('mins', '');
+            travelTime = travelTime.replace('min', '');
             this.travelTime = 'It looks like it\'ll take you ' + travelTime + ' minutes to get to work today';
           } else {
             this.travelTime = 'Travel times have been disabled';

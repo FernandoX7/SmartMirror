@@ -53,7 +53,7 @@
   </ion-list>
 
   <ion-fab bottom right>
-    <button [disabled]="!formCtrl.form.valid || !isFormReady" ion-fab (click)="startMirror()">
+    <button [disabled]="!formCtrl.form.valid || !isFormReady || !hasLocation" ion-fab (click)="startMirror()">
       <ion-icon name="md-color-wand"></ion-icon>
     </button>
   </ion-fab>
